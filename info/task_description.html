@@ -1,0 +1,103 @@
+<!-- Describe task in general -->
+<style>
+	img.tile {
+		border: 1px solid #294270;
+		position: relative;
+		top: 10px;
+	}
+</style>
+<p> <!-- Introduction -->
+	This mission is an adaptation of the game "Net" (from
+	<a href="https://www.chiark.greenend.org.uk/~sgtatham/puzzles/">
+	Simon Tatham's Portable Puzzle Collection</a>).
+	If you are lost or just want to play, the game is available
+	<a href="https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/net.html">here</a>.
+</p>
+
+<p> <!-- Description -->
+	You have a rectangular grid with tiles you can only rotate, but it's a bit
+	messy: tiles are not connected like they are supposed to be. You will have
+	to put them in order by <strong>rotating each tile to reassemble the network</strong>.
+</p>
+
+<p style="text-align: center">
+	<strong>The successful solution will be an entirely connected network,
+	with no closed loops.</strong>
+</p>
+
+<p> <!-- Tiles -->
+	There are four types of tiles:
+	<ul>
+		<li>Dead ends      <img class="tile" src="{{MEDIA}}W.png"   alt="W"   title="W tile"/></li>
+		<li>Straight roads <img class="tile" src="{{MEDIA}}NS.png"  alt="NS"  title="NS tile"/></li>
+		<li>90&deg; turns  <img class="tile" src="{{MEDIA}}NE.png"  alt="NE"  title="NE tile"/></li>
+		<li>T junctions    <img class="tile" src="{{MEDIA}}WSE.png" alt="WSE" title="WSE tile"/></li>
+	</ul>
+</p>
+
+<p> <!-- Schematized by -->
+	Tiles will be schematized by the directions to which they point
+	(<strong>N</strong>orth, <strong>W</strong>est, <strong>S</strong>outh,
+	<strong>E</strong>ast), and more exactly with a string of directions
+	(for example 'NE' if the tile is pointing to North and East,
+	then it's a 90&deg; turn).
+</p>
+
+<p>
+	Note that the order of directions in the string is meaningless
+	(for example: 'NSE' and 'ENS' are the same) for input and output.
+</p>
+
+<!-- Example with an image. -->
+<pre class="for_info_only" style="text-align: center">
+<img src="{{MEDIA}}5x5-example.png"
+	 alt="5x5 example: input and output images."/>
+
+[['NW' , 'S'  , 'N'  , 'E'  , 'SE'],       [['SE' , 'W'  , 'S'  , 'E'  , 'SW'],
+ ['NS' , 'W'  , 'NWE', 'NWE', 'SE'],        ['NS' , 'S'  , 'NSE', 'WSE', 'NW'],
+ ['WSE', 'NSE', 'NWE', 'W'  , 'E' ],  ===\  ['NSE', 'NWE', 'NWS', 'N'  , 'S' ],
+ ['WE' , 'WS' , 'WSE', 'SE' , 'WE'],  ===/  ['NS' , 'SE' , 'NWE', 'SW' , 'NS'],
+ ['W'  , 'NE' , 'N'  , 'NW' , 'WS']]        ['N'  , 'NE' , 'W'  , 'NE' , 'NW']]
+</pre>
+
+
+<!-- Explain input and output values -->
+<p>
+	<strong>Input:</strong>
+	A list of lists of strings.
+</p>
+
+<p>
+	<strong>Output:</strong>
+	A list/tuple of lists/tuples of strings.
+</p>
+
+
+<!-- Put some usage examples -->
+<div class="for_info_only">
+<p>
+	<strong>Example:</strong>
+</p>
+
+<pre class="brush: python">
+checkio([['NW' , 'S'  , 'N'  , 'E'  , 'SE'],
+         ['NS' , 'W'  , 'NWE', 'NWE', 'SE'],
+         ['WSE', 'NSE', 'NWE', 'W'  , 'E' ],
+         ['WE' , 'WS' , 'WSE', 'SE' , 'WE'],
+         ['W'  , 'NE' , 'N'  , 'NW' , 'WS']]) == [['SE' , 'W'  , 'S'  , 'E'  , 'SW'],
+                                                  ['NS' , 'S'  , 'NSE', 'WSE', 'NW'],
+                                                  ['NSE', 'NWE', 'NWS', 'N'  , 'S' ],
+                                                  ['NS' , 'SE' , 'NWE', 'SW' , 'NS'],
+                                                  ['N'  , 'NE' , 'W'  , 'NE' , 'NW']]
+</pre>
+</div>
+
+<p>
+	<strong>Preconditions:</strong>
+	<ul>
+		<li>Given puzzles are solvable.</li>
+		<li>3 &le; len(grid) &le; 25,
+		3 &le; len(grid[0]) &le; 40
+		and all(len(row) == len(grid[0]) for row in grid).</li>
+	</ul>
+</p>
