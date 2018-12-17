@@ -1,5 +1,6 @@
 def checkio(grid):
     # your code here
+    return grid
 
 
 if __name__ == '__main__':
@@ -55,6 +56,7 @@ if __name__ == '__main__':
                             return True # closed loop / cycle found.
                     elif cycle_existence(neighbor, new): # Visit the neighbor.
                         return True
+                visited[new] = True
             start = 0, 0
             if cycle_existence(start):
                 raise Error("There must be no closed loop.")
