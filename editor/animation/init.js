@@ -9,7 +9,7 @@ requirejs(['ext_editor_io', 'jquery_190'],
             multipleArguments: false,
             functions: {
                 python: 'checkio',
-                //js: 'sumTwo'
+                js: 'checkio'
             }
         });
         io.start();
