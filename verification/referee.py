@@ -84,6 +84,7 @@ def checker(input_grid, result):
                         return True # closed loop / cycle found.
                 elif cycle_existence(neighbor, new): # Visit the neighbor.
                     return True
+            visited[new] = True
         start = 0, 0
         if cycle_existence(start):
             raise Error("There must be no closed loop.")
@@ -102,6 +103,9 @@ api.add_listener(
     CheckiOReferee(
         tests = TESTS,
         checker = checker,
-        function_name = "checkio"
+        function_name = {
+            "python": "checkio"
+            "js": "checkio"
+        }
         ).on_ready
     )
