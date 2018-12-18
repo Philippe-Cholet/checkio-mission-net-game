@@ -104,7 +104,7 @@ api.add_listener(
         tests = TESTS,
         checker = checker,
         function_name = {
-            "python": "checkio"
+            "python": "checkio",
             "js": "checkio"
         }
         ).on_ready
