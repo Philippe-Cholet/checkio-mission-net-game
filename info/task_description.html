@@ -7,7 +7,7 @@
 	}
 </style>
 <p> <!-- Introduction -->
-	This mission is an adaptation of the game "Net" (from
+	This mission is an adaptation of the "Net" game (from
 	<a href="https://www.chiark.greenend.org.uk/~sgtatham/puzzles/">
 	Simon Tatham's Portable Puzzle Collection</a>).
 	If you are lost or just want to play, the game is available
@@ -16,12 +16,12 @@
 
 <p> <!-- Description -->
 	You have a rectangular grid with tiles you can only rotate, but it's a bit
-	messy: tiles are not connected like they are supposed to be. You will have
+	messy: tiles aren’t connected like they are supposed to be. You’ll have
 	to put them in order by <strong>rotating each tile to reassemble the network</strong>.
 </p>
 
 <p style="text-align: center">
-	<strong>The successful solution will be an entirely connected network,
+	<strong>The successful solution will be an entirely connected network 
 	with no closed loops.</strong>
 </p>
 
@@ -38,8 +38,8 @@
 <p> <!-- Schematized by -->
 	Tiles will be schematized by the directions to which they point
 	(<strong>N</strong>orth, <strong>W</strong>est, <strong>S</strong>outh,
-	<strong>E</strong>ast), and more exactly with a string of directions
-	(for example 'NE' if the tile is pointing to North and East,
+	<strong>E</strong>ast), and more precisely with a string of directions
+	(for example 'NE' if the tile is pointing to the Northeast,
 	then it's a 90&deg; turn).
 </p>
 
@@ -101,3 +101,5 @@ checkio([['NW' , 'S'  , 'N'  , 'E'  , 'SE'],
 		<li>all(len(row) == len(grid[0]) for row in grid).</li>
 	</ul>
 </p>
+
+
