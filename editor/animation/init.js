@@ -140,20 +140,20 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                 },
                 terminal: {
                     in: {
-                        'stroke': '#006CA9',
+                        'stroke': '#163E69',
                         'stroke-width': 0.5,
                         'fill': '#006CA9',
                     },
                     out: {
-                        'stroke': '#006CA9',
+                        'stroke': '#163E69',
                         'stroke-width': 0.5,
                         'fill': '#8EC6EC',
                     },
                 },
                 line: {
                     connection: {
-                        'stroke': '#006CA9',
-                        'fill': '#006CA9',
+                        'stroke': '#163E69',
+                        'fill': '#163E69',
                         'stroke-width': 0.5,
                     },
                 },
