@@ -1,0 +1,98 @@
+<!-- Describe task in general -->
+<style>
+	img.tile {
+		border: 1px solid #294270;
+		position: relative;
+		top: 10px;
+	}
+</style>
+<p> <!-- Introduction -->
+	Эта миссия является адаптацией игры "Сеть" (из
+	<a href="https://www.chiark.greenend.org.uk/~sgtatham/puzzles/">
+	коллекции головоломок Саймона Тэтхема</a>).
+	Если вы не знакомы с этой игрой, или просто хотите поиграть, то вам
+	<a href="https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/net.html">сюда</a>.
+</p>
+
+<p> <!-- Description -->
+	У вас есть прямоугольная сетка с плитками. Изначально плитки не связаны между собой, как они должны быть.
+	Вам предстоит <strong>собрать сеть, вращая каждую плитку</strong>.
+</p>
+
+<p style="text-align: center">
+	<strong>Удачным решением будет полностью подключенная сеть без замкнутых петель.</strong>
+</p>
+
+<p> <!-- Tiles -->
+	Есть четыре типа плиток:
+	<ul>
+		<li>Тупик                  <img class="tile for_info_only" src="{{MEDIA}}W.png"   alt="W"   title="W tile"/></li>
+		<li>Прямая дорога          <img class="tile for_info_only" src="{{MEDIA}}NS.png"  alt="NS"  title="NS tile"/></li>
+		<li>Поворот на 90&deg;     <img class="tile for_info_only" src="{{MEDIA}}NE.png"  alt="NE"  title="NE tile"/></li>
+		<li>Т-образный перекрёсток <img class="tile for_info_only" src="{{MEDIA}}WSE.png" alt="WSE" title="WSE tile"/></li>
+	</ul>
+</p>
+
+<p> <!-- Schematized by -->
+	Плитка обозначается направлениями, на которые она указывает (<strong>N</strong>orth (север), 
+	<strong>S</strong>outh (юг), <strong>W</strong>est (запад), <strong>E</strong>ast (восток)).
+	Например «NE», если плитка указывает на север и восток, тогда это поворот на 90&deg;.
+</p>
+
+<p>
+	Обратите внимание, что порядок букв в строке (например: «NSE» и «ENS») не имеет значения.
+	Это справедливо для входных и выходных данных.
+</p>
+
+<!-- Example with an image. -->
+<pre class="for_info_only" style="text-align: center">
+<img src="{{MEDIA}}5x5-example.png" alt="5x5 example: input and output images."/>
+
+[['NW' , 'S'  , 'N'  , 'E'  , 'SE'],       [['SE' , 'W'  , 'S'  , 'E'  , 'SW'],
+ ['NS' , 'W'  , 'NWE', 'NWE', 'SE'],        ['NS' , 'S'  , 'NSE', 'WSE', 'NW'],
+ ['WSE', 'NSE', 'NWE', 'W'  , 'E' ],  ===\  ['NSE', 'NWE', 'NWS', 'N'  , 'S' ],
+ ['WE' , 'WS' , 'WSE', 'SE' , 'WE'],  ===/  ['NS' , 'SE' , 'NWE', 'SW' , 'NS'],
+ ['W'  , 'NE' , 'N'  , 'NW' , 'WS']]        ['N'  , 'NE' , 'W'  , 'NE' , 'NW']]
+</pre>
+
+
+<!-- Explain input and output values -->
+<p>
+	<strong>Входные данные:</strong>
+	Список, содержащий списки целых чисел.
+</p>
+
+<p>
+	<strong>Выходные данные:</strong>
+	Список/кортеж, содержащий списки/кортежи целых чисел.
+</p>
+
+
+<!-- Put some usage examples -->
+<div class="for_info_only">
+<p>
+	<strong>Пример:</strong>
+</p>
+
+<pre class="brush: python">
+checkio([['NW' , 'S'  , 'N'  , 'E'  , 'SE'],
+         ['NS' , 'W'  , 'NWE', 'NWE', 'SE'],
+         ['WSE', 'NSE', 'NWE', 'W'  , 'E' ],
+         ['WE' , 'WS' , 'WSE', 'SE' , 'WE'],
+         ['W'  , 'NE' , 'N'  , 'NW' , 'WS']]) == [['SE' , 'W'  , 'S'  , 'E'  , 'SW'],
+                                                  ['NS' , 'S'  , 'NSE', 'WSE', 'NW'],
+                                                  ['NSE', 'NWE', 'NWS', 'N'  , 'S' ],
+                                                  ['NS' , 'SE' , 'NWE', 'SW' , 'NS'],
+                                                  ['N'  , 'NE' , 'W'  , 'NE' , 'NW']]
+</pre>
+</div>
+
+<p>
+	<strong>Предусловия:</strong>
+	<ul>
+		<li>Все предоставленные головоломки имеют решение.</li>
+		<li>3 &le; len(grid) &le; 25,
+		3 &le; len(grid[0]) &le; 40.</li>
+		<li>all(len(row) == len(grid[0]) for row in grid).</li>
+	</ul>
+</p>
